@@ -1,154 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LMA: Monsty Corp</title>
-    <!-- Bootstrap -->
-    <link href="bootstrap-4.4.1.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <p> <span class="badge badge-danger">Beta</span></p>
-        <p><a class="navbar-brand" href="#">&nbsp;Lockyz Media Archive Project</a> </p>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="../">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://discord.gg/NgpN3YYbMM">Discord</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="https://github.com/Lockyz-Media-Archive-Project">GitHub</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games <span class="sr-only">(current)</span></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="../monsty-corp">Monsty Corp</a>
-                <a class="dropdown-item" href="../scpc">SCPC</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../table-ball">Table Ball Unity</a>
-              </div>
-            </li>
-          </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table Ball Unity - Lockyz Media Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #1b1b1b;
+        color: #f5f5f5;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    header {
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        color: #ccc;
+        margin-bottom: 2rem;
+    }
+
+    .screenshots {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .screenshots img {
+        width: 100%;
+        border-radius: 8px;
+        border: 2px solid #333;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    .screenshots img:hover {
+        transform: scale(1.02);
+    }
+
+    .lightbox {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        display: none;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+    }
+
+    .lightbox.show {
+        display: flex;
+    }
+
+    .download-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        background: #61dafb;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-bottom: 2rem;
+    }
+    
+    .download-button:hover {
+        background: #4db8e6;
+    }
+
+    .features {
+        margin-bottom: 2rem;
+    }
+
+    .features h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .features ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+    }
+
+    .long-description {
+        margin-bottom: 2rem;
+    }
+
+    .long-description h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .long-description p {
+        margin-bottom: 1rem;
+        color: #ccc;
+    }
+
+    .links a {
+        display: inline-block;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+        background: #2c2c2c;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: #61dafb;
+        text-decoration: none;
+    }
+
+    .links a:hover {
+        background: #3a3a3a;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 3rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        background: #121212;
+        border-bottom: 1px solid #333;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+    
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .site-title a {
+        color: #61dafb;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .nav-links li {
+        position: relative;
+    }
+
+    .nav-links a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+    
+    .nav-links a:hover {
+        color: #fff;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1e1e1e;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        z-index: 1;
+        border: 1px solid #333;
+        list-style: none;
+    }
+
+    .dropdown-content li a {
+        padding: 0.75rem 1rem;
+    }
+
+    .dropdown-content li a:hover {
+        background-color: #333;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            background: #1b1b1b;
+            position: absolute;
+            top: 64px;
+            right: 0;
+            padding: 1rem;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .dropdown-content {
+            position: static;
+            border: none;
+            list-style: none;
+            box-shadow: none;
+            background: none;
+        }
+
+        .dropdown-content li a {
+            padding-left: 0;
+            list-style: none;
+        }
+    }
+
+    .footer {
+        background-color: #121212;
+        color: #ddd;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+    }
+
+    .footer-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .footer-links {
+        margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+        color: #61dafb;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1rem;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+    </style>
+    </head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+        <div class="site-title">
+            <a href="/">Lockyz Media Archive</a>
         </div>
-      </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li class="dropdown">
+            <a href="#" class="dropbtn">All Games ▾</a>
+            <ul class="dropdown-content" id="gameDropdown">
+                <li><a href="/games/monsty-corp/">Monsty Corp Unity</a></li>
+                <li><a href="/games/table-ball/">Table Ball Unity</a></li>
+                <li><a href="/games/scpc/">SCPC</a></li>
+            </ul>
+        </li>
+        </ul>
+    </div>
     </nav>
-    <div class="container mt-2">
-      <div class="row">
-<div class="col-12">
-      <div class="jumbotron">
-            <h1 class="text-center">Table Ball Unity</h1>
-            <p class="text-center">Table Ball Unity is a now abandoned version of Table Ball developed using the Unity Engine. It will be released as part of the Lockyz Media Archive Project.</p>
-            <img src="https://cdn.lockyzmedia.com/logos/lockyzmedia/square.png" alt="" class="img-fluid"> 
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="container">
-      <div class="row">
-        <div class="text-center col-md-6 col-12">
-          <h3>Open Source</h3>
-          <p>As part of the Lockyz Media Archive Project, you can download the source code for this game and see how it ticks.</p>
-          <a class="btn btn-danger btn-lg" href="https://github.com/Lockyz-Media-Archive-Project/Table-Ball-Unity" role="button">Source</a>
-        </div>
-        <div class="text-center col-md-6 col-12">
-          <h3>Download NOW</h3>
-          <p>You cannot download this game yet.</p>
-          <!-- <a class="btn btn-info btn-lg" href="https://lockyz-media.itch.io/lma-table-ball-unity" role="button">Download</a> -->
-        </div>
-      </div>
+    <header>
+        <h1>Table Ball Unity</h1>
+        <p class="description">Table Ball by Lockyz Media is the ultimate virtual arcade game! Compete against friends or the computer in exciting matches of top-down Ping Pong. This game is perfect for players of all skill levels. Start playing today and see if you have what it takes to come out on top!</p>
+    </header>
+
+    <section class="screenshots">
+        <img src="screenshots/screen1.jpg" alt="Screenshot 1" />
+        <img src="screenshots/screen2.jpg" alt="Screenshot 2" />
+        <img src="screenshots/screen3.jpg" alt="Screenshot 3" />
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="#" alt="Enlarged screenshot" />
     </div>
-<hr>
-<div class="card col-md-8"> <img class="card-img-top" src="images/card-img.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Table Ball - Unity Edition is an archived version of Table Ball created in the Unity Engine. This game however is being remade in Unreal Engine and will be made available as a separate download on itch, and as an update on Steam!&nbsp;</p>
-    <p class="card-text">Introducing Table Ball, the ultimate virtual arcade game created by Lockyz Media!</p>
-    <p class="card-text">&nbsp;In this game, you'll compete against your friends or the computer in exciting matches that will keep you on the edge of your seat. But, we've added a twist, power-ups! These powerups include super speed, to increase your speed and give you the win.</p>
-    <p class="card-text">You'll use your paddle to bounce the ball back and forth across the screen, trying to outmanoeuvre your opponent and score the most points.&nbsp;</p>
-    <p class="card-text">With intuitive controls, Table Ball is the perfect game for players of all ages and skill levels. So why wait? Start playing today and see if you have what it takes to come out on top! </p>
-  </div>
-</div>
-<hr>
-	  <div class="card col-md-8"> <img class="card-img-top" src="images/card-img.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">
-	  <h1>Features</h1>
-	  <h2>Customization System</h2>
-	  Customize your balls and bumpers to your liking.
-		We include a theme system as well to change the various menus and default game scene.
-	  <h2>Multiple Game Modes</h2>
-	  You wouldn't think such a simple game would have game modes did you?
-	  </p>
-  </div>
-</div>
-<hr>
-	  <div class="card col-md-8"> <img class="card-img-top" src="images/card-img.png" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">
-    <h1>Game Modes</h1>
-	  <h2>Table Ball</h2>
-	  The Table Ball Game mode resembles the classic game with one big difference, powerups. You can use for example the Speed boost powerup to give yourself that extra speed.
-	  <h2>Endless</h2>
-	  Do you want to continuously increase your score and eventually get the highest score in the world, while being able to take breaks between sessions? The Endless Game Mode allows that due to it's very revolutionary and definitely not something that's been in games for decades, saving system.
-    <h2>Space Game</h2>
-	  The Space Game, game mode was created as a Beta test of sorts for another game we're working on. Battle against multiple different ships with different abilities to get the highest score possible.
-	  </p>
-  </div>
-</div>
-<hr>
-<hr>
-    <div class="container text-white bg-dark p-4">
-      <div class="row">
-        <div class="col-6 col-md-8 col-lg-7">
-          <div class="row text-center">
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-                <li class="btn-link"> <a href="https://discord.gg/NgpN3YYbMM">Discord</a> </li>
-                <li class="btn-link"> <a href="https://github.com/Lockyz-Media-Archive-Project">GitHub</a> </li>
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-              </ul>
-            </div>
-          </div>
+
+    <section>
+        <a href="https://lockyz-media.itch.io/lma-table-ball-unity" class="download-button">📥 Download Game - itch.io</a>
+    </section>
+
+    <section class="features">
+        <h2>Features</h2>
+        <ul>
+            <li>Customization System</li>
+            <li>Multiple Game Modes</li>
+        </ul>
+    </section>
+
+    <section class="long-description">
+        <h2>About This Game</h2>
+        <p>Introducing Table Ball, the ultimate virtual arcade game created by Lockyz Media!</p>
+        <p>In this game, you'll compete against your friends or the computer in exciting matches that will keep you on the edge of your seat. But, we've added a twist, power-ups! These powerups include super speed, to increase your speed and give you the win.</p>
+        <p>You'll use your paddle to bounce the ball back and forth across the screen, trying to outmanoeuvre your opponent and score the most points.</p>
+        <p>With intuitive controls, Table Ball is the perfect game for players of all ages and skill levels. So why wait? Start playing today and see if you have what it takes to come out on top!</p>
+    </section>
+
+    <section class="links">
+        <a href="../">← Back to Archive</a>
+        <a href="https://tableball.lockyzdev.net" target="_blank">Official Site</a>
+        <a href="https://github.com/Lockyz-Media-Archive-Project/Table-Ball-Unity" target="_blank">Source Code</a>
+        <a href="https://store.steampowered.com/app/2094090/Table_Ball/" target="_blank">Steam</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+        <p>&copy; 2025 Lockyz Media. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://discord.gg/yourdiscordlink" target="_blank">Discord</a>
+            <a href="https://github.com/yourgithublink" target="_blank">GitHub</a>
+            <a href="mailto:your-email@example.com">Email</a>
         </div>
-        <div class="col-md-4 col-lg-5 col-6">
-          <address>
-            <strong>Lockyz Media</strong><br>
-          </address>
-          <address>
-            <strong>Email</strong><br>
-            <a href="mailto:archive@lockyzmedia.com">archive@lockyzmedia.com</a>
-          </address>
-        </div>
-      </div>
     </div>
-    <hr>
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright © Lockyz Media. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
     </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery-3.4.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="popper.min.js"></script>
-    <script src="bootstrap-4.4.1.js"></script>
-  </body>
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.screenshots img').forEach(img => {
+        img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+        });
+    });
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('show');
+    });
+</script>
+
+</body>
 </html>

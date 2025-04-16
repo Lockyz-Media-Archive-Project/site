@@ -1,129 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lockyz Media Archive Project</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <p> <span class="badge badge-danger">Beta</span></p>
-        <p><a class="navbar-brand" href="#">&nbsp;Lockyz Media Archive Project</a> </p>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://discord.gg/NgpN3YYbMM">Discord</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="https://github.com/Lockyz-Media-Archive-Project">GitHub</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="./monsty-corp">Monsty Corp</a>
-                <a class="dropdown-item" href="./scpc">SCPC</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="./table-ball">Table Ball Unity</a>
-              </div>
-            </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lockyz Media Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: linear-gradient(to right, #4b6cb7, #182848);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card a {
+      color: #61dafb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .navbar {
+      background: #121212;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .site-title a {
+      color: #61dafb;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      display: block;
+    }
+    
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1e1e1e;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      z-index: 1;
+      border: 1px solid #333;
+      list-style: none;
+    }
+
+    .dropdown-content li a {
+      padding: 0.75rem 1rem;
+    }
+
+    .dropdown-content li a:hover {
+      background-color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #1b1b1b;
+        position: absolute;
+        top: 64px;
+        right: 0;
+        padding: 1rem;
+        border-left: 1px solid #333;
+        border-bottom: 1px solid #333;
+      }
+
+      .dropdown-content {
+        position: static;
+        border: none;
+        list-style: none;
+        box-shadow: none;
+        background: none;
+      }
+
+      .dropdown-content li a {
+        padding-left: 0;
+        list-style: none;
+      }
+    }
+    .footer {
+      background-color: #121212;
+      color: #ddd;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #61dafb;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="site-title">
+        <a href="/">Lockyz Media Archive</a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">All Games ▾</a>
+          <ul class="dropdown-content" id="gameDropdown">
+            <li><a href="/games/monsty-corp/">Monsty Corp Unity</a></li>
+            <li><a href="/games/table-ball/">Table Ball Unity</a></li>
+            <li><a href="/games/scpc/">SCPC</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
-<hr>
-    <h2 class="text-center">Projects</h2>
-    <hr>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-4 pb-1 pb-md-0">
-          <div class="card">
-            <img class="card-img-top" src="https://cdn.lockyzmedia.com/img/mcorp.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Monsty Corp</h5>
-              <p class="card-text">A story based, puzzle game, Monsty Corp will have you exploring the facility known as “Monsty Corp”, an advanced science facility closed down due to strange occurrences.</p>
-              <a href="./monsty-corp" class="btn btn-primary">Go to Page</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 pb-1 pb-md-0">
-          <div class="card">
-            <img class="card-img-top" src="https://cdn.lockyzmedia.com/logos/lockyzmedia/square.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">SCPC</h5>
-              <p class="card-text">As the leader of the Stellar Concordance Peacekeeping Corps (SCPC), your job is to keep the peace in the region and defend the Stellar Concordance and allying planets from the Galactic Conquers and any other threats that may lie dormant in the dark recesses of space.</p>
-              <a href="./scpc" class="btn btn-primary">Go to Page</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 pb-1 pb-md-0">
-          <div class="card">
-            <img class="card-img-top" src="https://cdn.lockyzmedia.com/logos/lockyzmedia/square.png" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Table Ball Unity</h5>
-              <p class="card-text">Table Ball - Unity Edition is an archived version of Table Ball created in the Unity Engine. This game however is being remade in Unreal Engine and will be made available as a separate download on itch, and as an update on Steam!</p>
-              <a href="./table-ball" class="btn btn-primary">Go to Page</a>
-            </div>
-          </div>
-        </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Lockyz Media Archive</h1>
+    <h2>Preserving our history!</h2>
+    <p>The Lockyz Media Archive serves to host all our abandonded projects.</p>
+  </header>  
+
+  <main>
+    <div class="card">
+      <h2>Monsty Corp</h2>
+      <p>Explore the facility known as "Monsty Corp" in this story-based puzzle game.</p>
+      <a href="monsty-corp/">Explore Monsty Corp →</a>
+    </div>
+    <div class="card">
+      <h2>SCPC</h2>
+      <p>Defeat the Galactic Conquers in this epic spaceship battling game.</p>
+      <a href="scpc/">Visit SCPC →</a>
+    </div>
+    <div class="card">
+      <h2>Table Ball</h2>
+      <p>The last Unity build for our game Unreal Table Ball.</p>
+      <a href="table-ball/">Play Table Ball →</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Lockyz Media. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://discord.gg/yourdiscordlink" target="_blank">Discord</a>
+        <a href="https://github.com/yourgithublink" target="_blank">GitHub</a>
+        <a href="mailto:your-email@example.com">Email</a>
       </div>
     </div>
-    <hr>
-<hr>
-    <hr>
-    <div class="container text-white bg-dark p-4">
-      <div class="row">
-        <div class="col-6 col-md-8 col-lg-7">
-          <div class="row text-center">
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-                <li class="btn-link"> <a href="https://discord.gg/NgpN3YYbMM">Discord</a> </li>
-                <li class="btn-link"> <a href="https://github.com/Lockyz-Media-Archive-Project">GitHub</a> </li>
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-              </ul>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-4 col-12">
-              <ul class="list-unstyled">
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-lg-5 col-6">
-          <address>
-            <strong>Lockyz Media</strong><br>
-          </address>
-          <address>
-            <strong>Email</strong><br>
-            <a href="mailto:archive@lockyzmedia.com">archive@lockyzmedia.com</a>
-          </address>
-        </div>
-      </div>
-    </div>
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright © Lockyz Media. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
-  </body>
+  </footer>
+
+</body>
 </html>
