@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "monsty-corp",
+    "title": "Monsty Corp Unity",
+    "screenshots": ["/screenshots/monsty-corp/screen1.jpg","/screenshots/monsty-corp/screen2.jpg","/screenshots/monsty-corp/screen3.jpg"],
+    "download": "https://lockyz-media.itch.io/lma-monsty-corp-unity"
+  },
+  {
+    "slug": "scpc",
+    "title": "SCPC",
+    "screenshots": ["/screenshots/scpc/screen1.jpg","/screenshots/scpc/screen2.jpg","/screenshots/scpc/screen3.jpg"],
+    "download": "https://lockyz-media.itch.io/lma-scpc"
+  },
+  {
+    "slug": "table-ball",
+    "title": "Table Ball Unity",
+    "screenshots": ["/screenshots/table-ball/screen1.jpg","/screenshots/table-ball/screen2.jpg","/screenshots/table-ball/screen3.jpg"],
+    "download": "#"
+  },
+  {
+    "slug": "project-jareth",
+    "title": "Project Jareth",
+    "screenshots": ["/screenshots/project-jareth/screen1.jpg","/screenshots/project-jareth/screen2.jpg","/screenshots/project-jareth/screen3.jpg"],
+    "download": "https://lockyz-media.itch.io/lma-project-jareth"
+  }
+]
