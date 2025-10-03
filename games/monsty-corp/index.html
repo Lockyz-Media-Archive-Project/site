@@ -7,278 +7,13 @@
   <link rel="icon" href="/images/favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #1b1b1b;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    header {
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .description {
-      color: #ccc;
-      margin-bottom: 2rem;
-    }
-
-    .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .screenshots img {
-      width: 100%;
-      border-radius: 8px;
-      border: 2px solid #333;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .screenshots img:hover {
-      transform: scale(1.02);
-    }
-
-    .lightbox {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display: none;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
-
-    .lightbox.show {
-      display: flex;
-    }
-
-    .download-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background: #61dafb;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-bottom: 2rem;
-    }
-    
-    .download-button:hover {
-      background: #4db8e6;
-    }
-
-    .features {
-      margin-bottom: 2rem;
-    }
-
-    .features h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .features ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-
-    .long-description {
-      margin-bottom: 2rem;
-    }
-
-    .long-description h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .long-description p {
-      margin-bottom: 1rem;
-      color: #ccc;
-    }
-
-    .links a {
-      display: inline-block;
-      margin-right: 1rem;
-      margin-bottom: 0.5rem;
-      background: #2c2c2c;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      color: #61dafb;
-      text-decoration: none;
-    }
-
-    .links a:hover {
-      background: #3a3a3a;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .navbar {
-      background: #121212;
-      border-bottom: 1px solid #333;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-
-    .site-title a {
-      color: #61dafb;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    .nav-links li {
-      position: relative;
-    }
-
-    .nav-links a {
-      color: #ddd;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      display: block;
-    }
-    
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #1e1e1e;
-      min-width: 160px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      z-index: 1;
-      border: 1px solid #333;
-      list-style: none;
-    }
-
-    .dropdown-content li a {
-      padding: 0.75rem 1rem;
-    }
-
-    .dropdown-content li a:hover {
-      background-color: #333;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        background: #1b1b1b;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        padding: 1rem;
-        border-left: 1px solid #333;
-        border-bottom: 1px solid #333;
-      }
-
-      .dropdown-content {
-        position: static;
-        border: none;
-        list-style: none;
-        box-shadow: none;
-        background: none;
-      }
-
-      .dropdown-content li a {
-        padding-left: 0;
-        list-style: none;
-      }
-    }
-
-    .footer {
-      background-color: #121212;
-      color: #ddd;
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
-    }
-
-    .footer-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .footer-links {
-      margin-top: 0.5rem;
-    }
-
-    .footer-links a {
-      color: #61dafb;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-size: 1rem;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .footer p {
-      margin: 0;
-    }
-    </style>
-  </head>
+  
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
 <body>
-
+<div id="announcement" class="announcement critical">
+  <span class="announcement-text">This game was updated with an automated tool to protect against a security vulnerability affecting the Unity Engine. This means that there is an increased risk of bugs.</span>
+</div>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-container">
@@ -289,7 +24,7 @@
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="dropbtn">All Games ▾</a>
+          <a href="/games/" class="dropbtn">All Games ▾</a>
           <ul class="dropdown-content" id="gameDropdown">
             <li><a href="/games/monsty-corp/">Monsty Corp Unity</a></li>
             <li><a href="/games/table-ball/">Table Ball Unity</a></li>
@@ -319,7 +54,7 @@
 
     <section>
       <a href="https://lockyz-media.itch.io/lma-monsty-corp-unity" class="download-button">📥 Download Game - itch.io</a>
-      <a href="https://archive.org/details/lma-monstycorp" class="download-button">📥 Download Game - archive.org</a>
+      <!-- <a href="https://archive.org/details/lma-monstycorp" class="download-button">📥 Download Game - archive.org</a> -->
     </section>
 
     <section class="features">
@@ -340,7 +75,7 @@
     </section>
 
     <section class="links">
-      <a href="../">← Back to Archive</a>
+      <a href="/">← Back to Archive</a>
       <a href="https://github.com/Lockyz-Media-Archive-Project/Monsty-Corp-Unity" target="_blank">Source Code</a>
       <a href="https://store.steampowered.com/app/1335580/Monsty_Corp/" target="_blank">Steam</a>
     </section>
@@ -357,14 +92,14 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-container">
+        <div class="footer-container">
         <p>&copy; 2025 Lockyz Media. All rights reserved.</p>
         <div class="footer-links">
-          <a href="https://discord.gg/NgpN3YYbMM" target="_blank">Discord</a>
-          <a href="https://github.com/Lockyz-Media-Archive-Project" target="_blank">GitHub</a>
-          <a href="mailto:lockyzmedia@gmail.com">Email</a>
+            <a href="https://discord.gg/NgpN3YYbMM" target="_blank">Discord</a>
+            <a href="https://github.com/Lockyz-Media-Archive-Project" target="_blank">GitHub</a>
+            <a href="mailto:lockyzmedia@gmail.com">Email</a>
         </div>
-      </div>
+    </div>
     </footer>
   </div>
 
@@ -382,5 +117,6 @@
     });
   </script>
 
+  <
 </body>
 </html>

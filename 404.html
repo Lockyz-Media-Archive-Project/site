@@ -5,189 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
     <link rel="icon" href="/images/favicon.png" type="image/png" />
-    <style>
-        .error-page {
-            background-color: #121212;
-            color: #ddd;
-            font-family: Arial, sans-serif;
-        }
-
-        .error-content {
-            text-align: center;
-            padding: 5rem 1rem;
-        }
-
-        .error-content h1 {
-            font-size: 5rem;
-            color: #61dafb;
-        }
-
-        .error-content p {
-            font-size: 1.25rem;
-        }
-
-        .back-home-btn {
-            display: inline-block;
-            background-color: #61dafb;
-            color: #121212;
-            padding: 1rem 2rem;
-            margin-top: 1.5rem;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 0.3rem;
-        }
-
-        .back-home-btn:hover {
-            background-color: #4fa3d1;
-        }
-
-        footer {
-            background-color: #121212;
-            color: #ddd;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        .navbar {
-            background: #121212;
-            border-bottom: 1px solid #333;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .site-title a {
-            color: #61dafb;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            color: #ddd;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            display: block;
-        }
     
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #1e1e1e;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            z-index: 1;
-            border: 1px solid #333;
-            list-style: none;
-        }
-
-        .dropdown-content li a {
-            padding: 0.75rem 1rem;
-        }
-
-        .dropdown-content li a:hover {
-            background-color: #333;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                background: #1b1b1b;
-                position: absolute;
-                top: 64px;
-                right: 0;
-                padding: 1rem;
-                border-left: 1px solid #333;
-                border-bottom: 1px solid #333;
-            }
-
-            .dropdown-content {
-                position: static;
-                border: none;
-                list-style: none;
-                box-shadow: none;
-                background: none;
-            }
-
-            .dropdown-content li a {
-                padding-left: 0;
-                list-style: none;
-            }
-        }
-
-        footer .footer-links {
-            margin-top: 0.5rem;
-        }
-
-        footer .footer-links a {
-            color: #61dafb;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1rem;
-        }
-
-        footer .footer-links a:hover {
-            color: #fff;
-            }
-
-    </style>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="error-page">
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-        <div class="site-title">
-            <a href="/">Lockyz Media Archive</a>
-        </div>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="site-title">
+        <a href="/">Lockyz Media Archive</a>
+      </div>
 
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li class="dropdown">
-            <a href="#" class="dropbtn">All Games ▾</a>
-            <ul class="dropdown-content" id="gameDropdown">
-                <li><a href="/games/monsty-corp/">Monsty Corp Unity</a></li>
-                <li><a href="/games/table-ball/">Table Ball Unity</a></li>
-                <li><a href="/games/scpc/">SCPC</a></li>
-                <li><a href="/games/project-jareth/">Project Jareth</a></li>
-            </ul>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="/games/" class="dropbtn">All Games ▾</a>
+          <ul class="dropdown-content" id="gameDropdown">
+            <li><a href="/games/monsty-corp/">Monsty Corp Unity</a></li>
+            <li><a href="/games/table-ball/">Table Ball Unity</a></li>
+            <li><a href="/games/scpc/">SCPC</a></li>
+            <li><a href="/games/project-jareth/">Project Jareth</a></li>
+          </ul>
         </li>
-        </ul>
+      </ul>
     </div>
-</nav>
+  </nav>
 
     <main class="error-content">
         <h1>404</h1>
@@ -197,15 +39,17 @@
         <a href="/" class="back-home-btn">Go back to Home</a>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p>&copy; 2025 Lockyz Media. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://discord.gg/NgpN3YYbMM" target="_blank">Discord</a>
-                <a href="https://github.com/Lockyz-Media-Archive-Project" target="_blank">GitHub</a>
-                <a href="mailto:lockyzmedia@gmail.com">Email</a>
-            </div>
+        <p>&copy; 2025 Lockyz Media. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://discord.gg/NgpN3YYbMM" target="_blank">Discord</a>
+            <a href="https://github.com/Lockyz-Media-Archive-Project" target="_blank">GitHub</a>
+            <a href="mailto:lockyzmedia@gmail.com">Email</a>
         </div>
+    </div>
     </footer>
+  <
 </body>
 </html>
