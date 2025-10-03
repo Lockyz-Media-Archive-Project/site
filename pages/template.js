@@ -19,9 +19,9 @@ export default function Template(){
       </header>
 
       <section className="screenshots">
-        <img src="/Template/screenshots/screen1.jpg" alt="Screenshot 1" />
-        <img src="/Template/screenshots/screen2.jpg" alt="Screenshot 2" />
-        <img src="/Template/screenshots/screen3.jpg" alt="Screenshot 3" />
+        <img src="/screenshots/Template/screen1.jpg" alt="Screenshot 1" />
+        <img src="/screenshots/Template/screen2.jpg" alt="Screenshot 2" />
+        <img src="/screenshots/Template/screen3.jpg" alt="Screenshot 3" />
       </section>
 
       <section>

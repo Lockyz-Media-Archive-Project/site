@@ -21,7 +21,8 @@ export default function Games() {
         <div className="game-grid">
           {games.map(g => (
             <Link key={g.slug} href={`/games/${g.slug}`} className="game-card">
-              <img src={`/Template/screenshots/screen1.jpg`} alt={g.title} />
+              {/* Use the game's first screenshot from the public/screenshots/<slug>/ folder */}
+              <img src={`/screenshots/${g.slug}/screen1.jpg`} alt={g.title} />
               <div className="game-info">
                 <h2>{g.title}</h2>
                 <p>Click to view details</p>
