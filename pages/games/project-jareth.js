@@ -41,7 +41,7 @@ export default function ProjectJareth(){
 				</section>
 
 				<section className="links">
-					<Link href="/">← Back to Archive</Link>
+					<Link href="/"><a>← Back to Archive</a></Link>
 					<a href={game.download} target="_blank" rel="noreferrer">itch.io</a>
 				</section>
 			</div>

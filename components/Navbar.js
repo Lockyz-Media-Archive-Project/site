@@ -1,8 +1,19 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  // Close mobile menu when navigation finishes
+  useEffect(() => {
+    const handleRouteChange = () => setOpen(false)
+    router.events?.on?.('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events?.off?.('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
@@ -11,9 +22,17 @@ export default function Navbar() {
           <Link href="/"><a>Lockyz Media Archive</a></Link>
         </div>
 
-        <button className="mobile-menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle navigation">☰</button>
+        <button
+          className="mobile-menu-btn"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          aria-controls="main-navigation"
+        >
+          ☰
+        </button>
 
-        <ul className={`nav-links ${open ? 'open' : ''}`}>
+        <ul id="main-navigation" className={`nav-links ${open ? 'open' : ''}`}>
           <li><Link href="/"><a>Home</a></Link></li>
           <li className="dropdown">
             <Link href="/games"><a className="dropbtn">All Games ▾</a></Link>
