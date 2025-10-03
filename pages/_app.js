@@ -1,8 +1,6 @@
-import '../styles/globals.css';
-import React from 'react';
+import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps }) {
 	// minimal, valid App
-	return <Component {...pageProps} />;
-}
+	return <Component {...pageProps} />
 }
