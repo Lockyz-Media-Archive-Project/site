@@ -8,9 +8,8 @@ export default function TableBall(){
 	const game = games.find(g => g.slug === 'table-ball')
 
 	return (
-		<Layout>
+		<Layout title={`${game.title} — Lockyz Media Archive`}>
 			<Head>
-				<title>{game.title} — Lockyz Media Archive</title>
 				<meta name="description" content={`Archived project: ${game.title}`} />
 			</Head>
 

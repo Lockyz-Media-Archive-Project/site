@@ -4,9 +4,8 @@ import Layout from '../components/Layout'
 
 export default function Template(){
 	return (
-		<Layout>
+		<Layout title="Game Title — Lockyz Media Archive">
 			<Head>
-				<title>Game Title — Lockyz Media Archive</title>
 				<meta name="description" content="Template game page for Lockyz Media Archive" />
 			</Head>
 

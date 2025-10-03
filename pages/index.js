@@ -4,9 +4,8 @@ import Layout from '../components/Layout'
 
 export default function Home() {
 	return (
-		<Layout>
+		<Layout title="Lockyz Media Archive — Home">
 			<Head>
-				<title>Lockyz Media Archive — Home</title>
 				<meta name="description" content="Lockyz Media Archive — preserving abandoned projects and game builds." />
 			</Head>
 
@@ -14,7 +13,7 @@ export default function Home() {
 				<div className="card">
 					<h2>Monsty Corp Unity</h2>
 					<p>Explore the facility known as "Monsty Corp" in this story-based puzzle game.</p>
-					<Link href="/games/monsty-corp/">Explore Monsty Corp →</Link>
+					<Link href="/games/monsty-corp/"><a>Explore Monsty Corp →</a></Link>
 				</div>
 				<div className="card">
 					<h2>SCPC</h2>
