@@ -5,7 +5,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b shadow-sm">
+    <nav className="sticky top-0 z-50 navbar-backdrop border-b shadow-sm">
       <div className="container mx-auto flex justify-between items-center px-4 py-3">
         <Link href="/" className="font-bold text-lg">Lockyz Media</Link>
 
