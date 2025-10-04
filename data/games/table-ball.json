@@ -4,32 +4,14 @@
   "description": "Table Ball FUnity is the ultimate virtual arcade game! Compete against friends or the computer in exciting matches of top-down Ping Pong.",
   "requirements": {
     "minimum": [
-      {
-        "label": "OS",
-        "value": "Windows 7+"
-      },
-      {
-        "label": "Processor",
-        "value": "Dual-core 2.0 GHz"
-      },
-      {
-        "label": "RAM",
-        "value": "2 GB"
-      }
+      "OS: Windows 7+",
+      "Processor: Dual-core 2.0 GHz",
+      "RAM: 2 GB"
     ],
     "recommended": [
-      {
-        "label": "OS",
-        "value": "Windows 10"
-      },
-      {
-        "label": "Processor",
-        "value": "Quad-core 2.5 GHz"
-      },
-      {
-        "label": "RAM",
-        "value": "4 GB"
-      }
+      "OS: Windows 10",
+      "Processor: Quad-core 3.0 GHz",
+      "RAM: 4 GB"
     ]
   },
   "funFacts": [
@@ -38,18 +20,9 @@
   ],
   "otherInfo": {
     "details": [
-      {
-        "label": "Development Started",
-        "value": "2020"
-      },
-      {
-        "label": "Engine",
-        "value": "Unity"
-      },
-      {
-        "label": "Status",
-        "value": "Cancelled"
-      }
+      "Development Started: 2020",
+      "Engine: Unity",
+      "Status: Cancelled"
     ],
     "description": "Table Ball FUnity started as an arcade-style project and was the last Unity build for our team."
   },

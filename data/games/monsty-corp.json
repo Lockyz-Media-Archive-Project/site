@@ -4,40 +4,16 @@
   "description": "A story-based, puzzle game. Explore the facility known as Monsty Corp, an advanced science facility closed down due to strange occurrences.",
   "requirements": {
     "minimum": [
-      {
-        "label": "OS",
-        "value": "Windows 10"
-      },
-      {
-        "label": "Processor",
-        "value": "Intel i3 or equivalent"
-      },
-      {
-        "label": "RAM",
-        "value": "4 GB"
-      },
-      {
-        "label": "Storage",
-        "value": "500 MB"
-      }
+      "OS: Windows 10",
+      "Processor: Intel i3 or equivalent",
+      "RAM: 4 GB",
+      "Storage: 500 MB"
     ],
     "recommended": [
-      {
-        "label": "OS",
-        "value": "Windows 11"
-      },
-      {
-        "label": "Processor",
-        "value": "Intel i5 or equivalent"
-      },
-      {
-        "label": "RAM",
-        "value": "8 GB"
-      },
-      {
-        "label": "Storage",
-        "value": "1 GB"
-      }
+      "OS: Windows 10/11",
+      "Processor: Intel i5 or equivalent",
+      "RAM: 8 GB",
+      "Storage: 1 GB"
     ]
   },
   "funFacts": [
@@ -47,18 +23,9 @@
   ],
   "otherInfo": {
     "details": [
-      {
-        "label": "Development Started",
-        "value": "2021"
-      },
-      {
-        "label": "Engine",
-        "value": "Unity 2019/2020"
-      },
-      {
-        "label": "Status",
-        "value": "Cancelled"
-      }
+      "Development Started: 2021",
+      "Engine: Unity 2019/2020",
+      "Status: Cancelled"
     ],
     "description": "Play as Robin and uncover the secrets of Monsty Corp. After getting stuck within the facility, Robin wants to go home and see their husband."
   },

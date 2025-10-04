@@ -4,32 +4,14 @@
   "description": "Lead the Stellar Concordance Peacekeeping Corps and defend the region from the Galactic Conquers in this space adventure.",
   "requirements": {
     "minimum": [
-      {
-        "label": "OS",
-        "value": "Windows 8+"
-      },
-      {
-        "label": "Processor",
-        "value": "Dual-core 2.5 GHz"
-      },
-      {
-        "label": "RAM",
-        "value": "4 GB"
-      }
+      "OS: Windows 8+",
+      "Processor: Dual-core 2.5 GHz",
+      "RAM: 4 GB"
     ],
     "recommended": [
-      {
-        "label": "OS",
-        "value": "Windows 10"
-      },
-      {
-        "label": "Processor",
-        "value": "Quad-core 3.0 GHz"
-      },
-      {
-        "label": "RAM",
-        "value": "8 GB"
-      }
+      "OS: Windows 10",
+      "Processor: Quad-core 3.0 GHz",
+      "RAM: 8 GB"
     ]
   },
   "funFacts": [
@@ -38,18 +20,9 @@
   ],
   "otherInfo": {
     "details": [
-      {
-        "label": "Development Started",
-        "value": "2019"
-      },
-      {
-        "label": "Engine",
-        "value": "Unity"
-      },
-      {
-        "label": "Status",
-        "value": "Cancelled"
-      }
+      "Development Started: 2019",
+      "Engine: Unity",
+      "Status: Cancelled"
     ],
     "description": "A large-scale space combat concept with narrative elements."
   },
