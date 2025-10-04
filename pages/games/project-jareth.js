@@ -1,50 +1,15 @@
-import Link from 'next/link'
-import games from '../../data/games.json'
-import ScreenshotGallery from '../../components/ScreenshotGallery'
-import Head from 'next/head'
-import Layout from '../../components/Layout'
+import Alert from '../../components/Alert';
 
-export default function ProjectJareth(){
-	const game = games.find(g => g.slug === 'project-jareth')
-
-	return (
-		<Layout title={`${game.title} — Lockyz Media Archive`}>
-			<Head>
-				<meta name="description" content={`Archived project: ${game.title}`} />
-			</Head>
-
-			<div className="container">
-				<header>
-					<h1>{game.title}</h1>
-					<p className="description">A now abandoned VR Game, this was created purely to allow us to learn how to make VR Games.</p>
-				</header>
-
-				<section>
-					<h2>IMPORTANT!</h2>
-					<p>This is a VR-REQUIRED game — you'll need a VR Headset compatible with the OpenXR runtime.</p>
-				</section>
-
-				<section>
-					<a href={game.download} className="download-button">📥 Download Game - itch.io</a>
-				</section>
-
-				<ScreenshotGallery images={game.screenshots} />
-
-				<section className="long-description">
-					<h2>About This Game</h2>
-					<p>Trapped, that's what you are, like a rat, in a maze.</p>
-				</section>
-
-				<section>
-					<h2>Sub-Anomalies</h2>
-					<p>So far we've encountered three sub-anomalies within the PJ Main Anomaly. There's still a lot of information we do not know about them.</p>
-				</section>
-
-				<section className="links">
-					<Link href="/"><a>← Back to Archive</a></Link>
-					<a href={game.download} target="_blank" rel="noreferrer">itch.io</a>
-				</section>
-			</div>
-		</Layout>
-	)
+export default function ProjectJareth() {
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-4">Project Jareth</h1>
+      <p className="mb-4">Project Jareth is an unfinished VR Game.</p>
+      <Alert type="error">
+        This game was updated with an automated tool to protect against a security
+        vulnerability affecting the Unity Engine. This means that there is an
+        increased risk of bugs.
+      </Alert>
+    </div>
+  );
 }

@@ -1,6 +1,10 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import Layout from '../components/Layout';
 
 export default function MyApp({ Component, pageProps }) {
-	// minimal, valid App
-	return <Component {...pageProps} />
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }

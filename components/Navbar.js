@@ -1,50 +1,37 @@
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const router = useRouter()
-
-  // Close mobile menu when navigation finishes
-  useEffect(() => {
-    const handleRouteChange = () => setOpen(false)
-    router.events?.on?.('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events?.off?.('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="navbar" role="navigation" aria-label="Main navigation">
-      <div className="navbar-container">
-        <div className="site-title">
-          <Link href="/"><a>Lockyz Media Archive</a></Link>
-        </div>
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b shadow-sm">
+      <div className="container mx-auto flex justify-between items-center px-4 py-3">
+        <Link href="/" className="font-bold text-lg">Lockyz Media</Link>
 
         <button
-          className="mobile-menu-btn"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle navigation"
-          aria-expanded={open}
-          aria-controls="main-navigation"
+          className="md:hidden p-2 rounded hover:bg-gray-100"
+          aria-label="Toggle Menu"
         >
           ☰
         </button>
 
-        <ul id="main-navigation" className={`nav-links ${open ? 'open' : ''}`}>
-          <li><Link href="/"><a>Home</a></Link></li>
-          <li className="dropdown">
-            <Link href="/games"><a className="dropbtn">All Games ▾</a></Link>
-            <ul className="dropdown-content" id="gameDropdown">
-              <li><Link href="/games/monsty-corp"><a>Monsty Corp Unity</a></Link></li>
-              <li><Link href="/games/table-ball"><a>Table Ball Unity</a></Link></li>
-              <li><Link href="/games/scpc"><a>SCPC</a></Link></li>
-              <li><Link href="/games/project-jareth"><a>Project Jareth</a></Link></li>
+        <div className={`flex-col md:flex md:flex-row gap-3 md:gap-6 ${open ? 'flex' : 'hidden'} md:flex`}>
+          <Link href="/" className="btn-link">Home</Link>
+
+          <div className="relative group">
+            <button className="btn-link">All Games ▾</button>
+            <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 w-56 p-2">
+              <li><Link href="/games/project-jareth" className="dropdown-link">Project Jareth</Link></li>
+              <li><Link href="/games/table-ball" className="dropdown-link">Table Ball</Link></li>
+              <li><Link href="/games/template" className="dropdown-link">Template</Link></li>
             </ul>
-          </li>
-        </ul>
+          </div>
+
+          <Link href="/about" className="btn-link">About</Link>
+        </div>
       </div>
     </nav>
-  )
+  );
 }
