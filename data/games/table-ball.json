@@ -1,0 +1,67 @@
+{
+  "slug": "table-ball",
+  "title": "Table Ball FUnity",
+  "description": "Table Ball FUnity is the ultimate virtual arcade game! Compete against friends or the computer in exciting matches of top-down Ping Pong.",
+  "requirements": {
+    "minimum": [
+      {
+        "label": "OS",
+        "value": "Windows 7+"
+      },
+      {
+        "label": "Processor",
+        "value": "Dual-core 2.0 GHz"
+      },
+      {
+        "label": "RAM",
+        "value": "2 GB"
+      }
+    ],
+    "recommended": [
+      {
+        "label": "OS",
+        "value": "Windows 10"
+      },
+      {
+        "label": "Processor",
+        "value": "Quad-core 2.5 GHz"
+      },
+      {
+        "label": "RAM",
+        "value": "4 GB"
+      }
+    ]
+  },
+  "funFacts": [
+    "Customization system",
+    "Multiple game modes"
+  ],
+  "otherInfo": {
+    "details": [
+      {
+        "label": "Development Started",
+        "value": "2020"
+      },
+      {
+        "label": "Engine",
+        "value": "Unity"
+      },
+      {
+        "label": "Status",
+        "value": "Cancelled"
+      }
+    ],
+    "description": "Table Ball FUnity started as an arcade-style project and was the last Unity build for our team."
+  },
+  "externalLinks": [
+    {
+      "label": "Official Site",
+      "url": "https://tableball.lockyzdev.net"
+    },
+    {
+      "label": "Source Code",
+      "url": "https://github.com/Lockyz-Media-Archive-Project"
+    }
+  ],
+  "showAnnouncement": false
+}

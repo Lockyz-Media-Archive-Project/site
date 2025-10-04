@@ -1,0 +1,63 @@
+{
+  "slug": "scpc",
+  "title": "SCPC",
+  "description": "Lead the Stellar Concordance Peacekeeping Corps and defend the region from the Galactic Conquers in this space adventure.",
+  "requirements": {
+    "minimum": [
+      {
+        "label": "OS",
+        "value": "Windows 8+"
+      },
+      {
+        "label": "Processor",
+        "value": "Dual-core 2.5 GHz"
+      },
+      {
+        "label": "RAM",
+        "value": "4 GB"
+      }
+    ],
+    "recommended": [
+      {
+        "label": "OS",
+        "value": "Windows 10"
+      },
+      {
+        "label": "Processor",
+        "value": "Quad-core 3.0 GHz"
+      },
+      {
+        "label": "RAM",
+        "value": "8 GB"
+      }
+    ]
+  },
+  "funFacts": [
+    "Retro sci-fi tag",
+    "Singleplayer focus"
+  ],
+  "otherInfo": {
+    "details": [
+      {
+        "label": "Development Started",
+        "value": "2019"
+      },
+      {
+        "label": "Engine",
+        "value": "Unity"
+      },
+      {
+        "label": "Status",
+        "value": "Cancelled"
+      }
+    ],
+    "description": "A large-scale space combat concept with narrative elements."
+  },
+  "externalLinks": [
+    {
+      "label": "Download - Itch.io",
+      "url": "https://lockyz-media.itch.io"
+    }
+  ],
+  "showAnnouncement": true
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "site-update",
+    "type": "info",
+    "message": "The Lockyz Media Archive site has been modernized. Some content may be in progress.",
+    "pages": [
+      "*"
+    ],
+    "placement": "above-navbar"
+  },
+  {
+    "id": "unity-vuln",
+    "type": "error",
+    "message": "This game was updated with an automated tool to protect against a Unity vulnerability. Bugs may occur.",
+    "pages": [
+      "/games/monsty-corp",
+      "/games/scpc"
+    ],
+    "placement": "below-navbar"
+  }
+]

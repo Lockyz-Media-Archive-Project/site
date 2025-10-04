@@ -1,0 +1,63 @@
+{
+  "slug": "project-jareth",
+  "title": "Project Jareth",
+  "description": "An unfinished VR game used internally to learn VR development.",
+  "requirements": {
+    "minimum": [
+      {
+        "label": "VR Headset",
+        "value": "OpenXR-compatible headset"
+      },
+      {
+        "label": "Processor",
+        "value": "Intel i5 or equivalent"
+      },
+      {
+        "label": "RAM",
+        "value": "8 GB"
+      }
+    ],
+    "recommended": [
+      {
+        "label": "VR Headset",
+        "value": "Oculus Rift (recommended)"
+      },
+      {
+        "label": "Processor",
+        "value": "Intel i7 or equivalent"
+      },
+      {
+        "label": "RAM",
+        "value": "16 GB"
+      }
+    ]
+  },
+  "funFacts": [
+    "VR required",
+    "Only tested on Oculus Rift"
+  ],
+  "otherInfo": {
+    "details": [
+      {
+        "label": "Development Started",
+        "value": "2022"
+      },
+      {
+        "label": "Engine",
+        "value": "Unreal Engine"
+      },
+      {
+        "label": "Status",
+        "value": "Prototype"
+      }
+    ],
+    "description": "Project Jareth was intended as a VR learning project. Use OpenXR-compliant headsets to play."
+  },
+  "externalLinks": [
+    {
+      "label": "Download - Itch.io",
+      "url": "https://lockyz-media.itch.io"
+    }
+  ],
+  "showAnnouncement": false
+}

@@ -1,0 +1,18 @@
+{
+  "global": [
+    {
+      "type": "info",
+      "icon": "\u2139\ufe0f",
+      "text": "Welcome to the Lockyz Media Archive (fallback announcement)."
+    }
+  ],
+  "pages": {
+    "games/monsty-corp": [
+      {
+        "type": "error",
+        "icon": "\u274c",
+        "text": "This game was updated with an automated tool to protect against a security vulnerability affecting the Unity Engine. This means that there is an increased risk of bugs."
+      }
+    ]
+  }
+}

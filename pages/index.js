@@ -1,38 +1,33 @@
-        import React from 'react';
+import fs from 'fs';
+import path from 'path';
+import Link from 'next/link';
+import React from 'react';
 
-        const Page = () => {
-          return (
-            <div dangerouslySetInnerHTML={ __html: `&lt;div class=&quot;container&quot;&gt;
-            &lt;h1&gt;Lockyz Media Archive&lt;/h1&gt;
-&lt;h2&gt;Preserving our history!&lt;/h2&gt;
-&lt;p&gt;The Lockyz Media Archive serves to host all our abandonded projects.&lt;/p&gt;
+export async function getStaticProps() {
+  const dataDir = path.join(process.cwd(), 'data', 'games');
+  const files = fs.readdirSync(dataDir).filter(f => f.endsWith('.json'));
+  const games = files.map(f => {
+    const raw = fs.readFileSync(path.join(dataDir, f), 'utf-8');
+    return JSON.parse(raw);
+  });
+  return { props: { games } };
+}
 
-&lt;section class=&quot;card&quot;&gt;
-  &lt;h2&gt;Monsty Corp Unity&lt;/h2&gt;
-  &lt;p&gt;Explore the facility known as &quot;Monsty Corp&quot; in this story-based puzzle game.&lt;/p&gt;
-  &lt;p&gt;&lt;a class=&quot;link-button btn-primary&quot; href=&quot;/games/monsty-corp/index.html&quot;&gt;Explore Monsty Corp →&lt;/a&gt;&lt;/p&gt;
-&lt;/section&gt;
+export default function Index({ games }) {
+  return (
+    <main className="container">
+      <h1>Lockyz Media Archive</h1>
+      <p className="meta">Preserving our history — archived projects and playable builds.</p>
 
-&lt;section class=&quot;card&quot;&gt;
-  &lt;h2&gt;SCPC&lt;/h2&gt;
-  &lt;p&gt;Defeat the Galactic Conquers in this epic spaceship battling game.&lt;/p&gt;
-  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/scpc/index.html&quot;&gt;Visit SCPC →&lt;/a&gt;&lt;/p&gt;
-&lt;/section&gt;
-
-&lt;section class=&quot;card&quot;&gt;
-  &lt;h2&gt;Table Ball Unity&lt;/h2&gt;
-  &lt;p&gt;The last Unity build for our game Unreal Table Ball.&lt;/p&gt;
-  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/table-ball/index.html&quot;&gt;Play Table Ball →&lt;/a&gt;&lt;/p&gt;
-&lt;/section&gt;
-
-&lt;section class=&quot;card&quot;&gt;
-  &lt;h2&gt;Project Jareth&lt;/h2&gt;
-  &lt;p&gt;Project Jareth is an unfinished VR Game.&lt;/p&gt;
-  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/project-jareth/index.html&quot;&gt;Check it out! →&lt;/a&gt;&lt;/p&gt;
-&lt;/section&gt;
-
-          &lt;/div&gt;` } />
-          );
-        }
-
-        export default Page;
+      <div className="grid">
+        {games.map(g => (
+          <div key={g.slug} className="card">
+            <h2>{g.title}</h2>
+            <p>{g.description}</p>
+            <p><Link href={`/games/${g.slug}`}><a className="link-button btn-primary">Open Page →</a></Link></p>
+          </div>
+        ))}
+      </div>
+    </main>
+  )
+}

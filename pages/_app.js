@@ -1,18 +1,10 @@
-import '../styles/global.css'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import { useState } from 'react'
+import '../styles/globals.css';
+import Layout from '../components/Layout';
 
-function MyApp({ Component, pageProps }){
-  // simple announcement state handling: pageProps.announcement can be passed from pages if needed
-  const [showAnn, setShowAnn] = useState(true);
+export default function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Navbar />
-      <Component {...pageProps} announcementVisible={showAnn} onCloseAnnouncement={() => setShowAnn(false)} />
-      <Footer />
-    </>
-  )
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
-
-export default MyApp;
