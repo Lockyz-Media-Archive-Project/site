@@ -1,27 +1,38 @@
-import Link from 'next/link';
+        import React from 'react';
 
-export default function Home() {
-  const games = [
-    { title: 'Monsty Corp Unity', desc: 'Explore the facility known as "Monsty Corp" in this story-based puzzle game.', link: '/games/monsty-corp' },
-    { title: 'SCPC', desc: 'Defeat the Galactic Conquers in this epic spaceship battling game.', link: '/games/scpc' },
-    { title: 'Table Ball Unity', desc: 'The last Unity build for our game Unreal Table Ball.', link: '/games/table-ball' },
-    { title: 'Project Jareth', desc: 'Project Jareth is an unfinished VR Game.', link: '/games/project-jareth' },
-  ];
+        const Page = () => {
+          return (
+            <div dangerouslySetInnerHTML={ __html: `&lt;div class=&quot;container&quot;&gt;
+            &lt;h1&gt;Lockyz Media Archive&lt;/h1&gt;
+&lt;h2&gt;Preserving our history!&lt;/h2&gt;
+&lt;p&gt;The Lockyz Media Archive serves to host all our abandonded projects.&lt;/p&gt;
 
-  return (
-    <div>
-      <h1 className="page-title">Lockyz Media Archive</h1>
-      <p className="lead text-muted">Preserving our history — abandoned projects, prototypes, and last builds.</p>
+&lt;section class=&quot;card&quot;&gt;
+  &lt;h2&gt;Monsty Corp Unity&lt;/h2&gt;
+  &lt;p&gt;Explore the facility known as &quot;Monsty Corp&quot; in this story-based puzzle game.&lt;/p&gt;
+  &lt;p&gt;&lt;a class=&quot;link-button btn-primary&quot; href=&quot;/games/monsty-corp/index.html&quot;&gt;Explore Monsty Corp →&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
 
-      <section className="grid cards" aria-label="Featured games">
-        {games.map(g => (
-          <article className="card" key={g.title}>
-            <h2 className="card-title">{g.title}</h2>
-            <p className="card-desc">{g.desc}</p>
-            <p><Link href={g.link}><a className="btn-primary">Explore →</a></Link></p>
-          </article>
-        ))}
-      </section>
-    </div>
-  );
-}
+&lt;section class=&quot;card&quot;&gt;
+  &lt;h2&gt;SCPC&lt;/h2&gt;
+  &lt;p&gt;Defeat the Galactic Conquers in this epic spaceship battling game.&lt;/p&gt;
+  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/scpc/index.html&quot;&gt;Visit SCPC →&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;card&quot;&gt;
+  &lt;h2&gt;Table Ball Unity&lt;/h2&gt;
+  &lt;p&gt;The last Unity build for our game Unreal Table Ball.&lt;/p&gt;
+  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/table-ball/index.html&quot;&gt;Play Table Ball →&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class=&quot;card&quot;&gt;
+  &lt;h2&gt;Project Jareth&lt;/h2&gt;
+  &lt;p&gt;Project Jareth is an unfinished VR Game.&lt;/p&gt;
+  &lt;p&gt;&lt;a class=&quot;link-button&quot; href=&quot;/games/project-jareth/index.html&quot;&gt;Check it out! →&lt;/a&gt;&lt;/p&gt;
+&lt;/section&gt;
+
+          &lt;/div&gt;` } />
+          );
+        }
+
+        export default Page;

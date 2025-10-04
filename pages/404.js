@@ -1,14 +1,14 @@
-import Link from 'next/link';
+        import React from 'react';
 
-export default function NotFound() {
-  return (
-    <div className="notfound">
-      <h1>404 — Page Not Found</h1>
-      <p>Sorry I couldn’t find what you’re looking for, but have a cool duck instead 🦆</p>
-      <div className="duck-wrap">
-        <img src="https://media.tenor.com/i3Qc4TdcXwMAAAAj/duck-meme.gif" alt="Funny duck" />
-      </div>
-      <p><Link href="/"><a className="btn-primary">Go Back Home</a></Link></p>
-    </div>
-  );
-}
+        const Page = () => {
+          return (
+            <div dangerouslySetInnerHTML={ __html: `&lt;div class=&quot;container&quot;&gt;
+            &lt;h1&gt;404 — Page not found&lt;/h1&gt;
+&lt;p&gt;We couldn&#x27;t find the page you requested.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;link-button btn-primary&quot; href=&quot;/index.html&quot;&gt;Return Home&lt;/a&gt;&lt;/p&gt;
+
+          &lt;/div&gt;` } />
+          );
+        }
+
+        export default Page;
