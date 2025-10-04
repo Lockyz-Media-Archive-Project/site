@@ -10,16 +10,18 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Welcome to Lockyz Media Archive</h1>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {games.map((g) => (
-          <div key={g.title} className="card">
-            <h2 className="text-xl font-semibold mb-2">{g.title}</h2>
-            <p className="flex-1 mb-4 text-gray-600">{g.desc}</p>
-            <Link href={g.link} className="btn-primary self-start">Play →</Link>
-          </div>
+      <h1 className="page-title">Lockyz Media Archive</h1>
+      <p className="lead text-muted">Preserving our history — abandoned projects, prototypes, and last builds.</p>
+
+      <section className="grid cards" aria-label="Featured games">
+        {games.map(g => (
+          <article className="card" key={g.title}>
+            <h2 className="card-title">{g.title}</h2>
+            <p className="card-desc">{g.desc}</p>
+            <p><Link href={g.link}><a className="btn-primary">Explore →</a></Link></p>
+          </article>
         ))}
-      </div>
+      </section>
     </div>
   );
 }

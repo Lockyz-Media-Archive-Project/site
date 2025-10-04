@@ -1,15 +1,13 @@
-import Alert from '../../components/Alert';
-
 export default function ProjectJareth() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Project Jareth</h1>
-      <p className="mb-4">Project Jareth is an unfinished VR Game.</p>
-      <Alert type="error">
-        This game was updated with an automated tool to protect against a security
-        vulnerability affecting the Unity Engine. This means that there is an
-        increased risk of bugs.
-      </Alert>
+      <h1>Project Jareth</h1>
+      <p className="text-muted">Project Jareth is an unfinished VR prototype. This build is a prototype release and will not be updated.</p>
+
+      <section>
+        <h2>Prototype Notes</h2>
+        <p>This prototype was created to experiment with VR locomotion and interaction patterns. It is provided 'as-is' for archival purposes.</p>
+      </section>
     </div>
   );
 }

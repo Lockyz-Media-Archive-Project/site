@@ -3,13 +3,17 @@ import Alert from '../../components/Alert';
 export default function SCPC() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">SCPC</h1>
-      <p className="mb-4">Defeat the Galactic Conquers in this epic spaceship battling game.</p>
+      <h1>SCPC</h1>
+      <p className="text-muted">Defeat the Galactic Conquers in this epic spaceship battling game.</p>
+
       <Alert type="error">
-        This game was updated with an automated tool to protect against a security
-        vulnerability affecting the Unity Engine. This means that there is an
-        increased risk of bugs.
+        This Unity build was updated automatically to mitigate a Unity Engine security vulnerability; this increases the risk of bugs.
       </Alert>
+
+      <section>
+        <h2>About</h2>
+        <p>SCPC is a fast-paced space combat prototype featuring early AI enemies and weapon systems. This archive contains the final indev build.</p>
+      </section>
     </div>
   );
 }

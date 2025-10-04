@@ -5,31 +5,33 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 navbar-backdrop border-b shadow-sm">
-      <div className="container mx-auto flex justify-between items-center px-4 py-3">
-        <Link href="/" className="font-bold text-lg">Lockyz Media</Link>
+    <nav className="navbar-backdrop">
+      <div className="container navbar-inner">
+        <Link href="/"><a className="brand">Lockyz Media</a></Link>
 
         <button
+          className="mobile-toggle"
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded hover:bg-gray-100"
-          aria-label="Toggle Menu"
+          aria-label="Toggle menu"
         >
           ☰
         </button>
 
-        <div className={`flex-col md:flex md:flex-row gap-3 md:gap-6 ${open ? 'flex' : 'hidden'} md:flex`}>
-          <Link href="/" className="btn-link">Home</Link>
+        <div className={`nav-links ${open ? 'open' : ''}`}>
+          <Link href="/"><a className="btn-link">Home</a></Link>
 
-          <div className="relative group">
-            <button className="btn-link">All Games ▾</button>
-            <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 w-56 p-2">
-              <li><Link href="/games/project-jareth" className="dropdown-link">Project Jareth</Link></li>
-              <li><Link href="/games/table-ball" className="dropdown-link">Table Ball</Link></li>
-              <li><Link href="/games/template" className="dropdown-link">Template</Link></li>
-            </ul>
+          <div className="dropdown">
+            <Link href="/games"><a className="btn-link">All Games ▾</a></Link>
+            <div className="dropdown-menu" aria-hidden="true">
+              <Link href="/games/monsty-corp"><a className="dropdown-link">Monsty Corp Unity</a></Link>
+              <Link href="/games/table-ball"><a className="dropdown-link">Table Ball Unity</a></Link>
+              <Link href="/games/scpc"><a className="dropdown-link">SCPC</a></Link>
+              <Link href="/games/project-jareth"><a className="dropdown-link">Project Jareth</a></Link>
+              <Link href="/games/template"><a className="dropdown-link">Template</a></Link>
+            </div>
           </div>
 
-          <Link href="/about" className="btn-link">About</Link>
+          <Link href="/games"><a className="btn-link">Games</a></Link>
         </div>
       </div>
     </nav>
