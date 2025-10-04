@@ -30,8 +30,6 @@ export default function Navbar() {
               <Link href="/games/template"><a className="dropdown-link">Template</a></Link>
             </div>
           </div>
-
-          <Link href="/games"><a className="btn-link">Games</a></Link>
         </div>
       </div>
     </nav>
