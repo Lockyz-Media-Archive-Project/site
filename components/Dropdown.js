@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function Dropdown({ title, children }){
-  const [open, setOpen] = useState(false);
   return (
-    <div className="dropdown-block">
-      <button className="btn-link" onClick={()=>setOpen(!open)} aria-expanded={open}>
-        {title} {open ? '▾' : '▸'}
-      </button>
-      <div className={`dropdown-content ${open ? 'open' : ''}`} style={{display: open ? 'block' : 'none', marginTop: '8px'}}>
+    <details className="dropdown-block" style={{marginTop:8}}>
+      <summary className="link-button btn-outline" style={{cursor:'pointer'}}>{title}</summary>
+      <div className="dropdown-content" style={{marginTop:8}}>
         {children}
       </div>
-    </div>
+    </details>
   )
 }
