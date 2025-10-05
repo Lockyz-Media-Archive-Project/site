@@ -4,10 +4,10 @@ export default function Dropdown({ title, children }){
   const [open, setOpen] = useState(false);
   return (
     <div className="dropdown-block">
-      <button className="btn-link" onClick={()=>setOpen(!open)} aria-expanded={open}>
+      <button className="link-button btn-outline" onClick={()=>setOpen(!open)} aria-expanded={open}>
         {title} {open ? '▾' : '▸'}
       </button>
-      <div className={`dropdown-content ${open ? 'open' : ''}`} style={{display: open ? 'block' : 'none', marginTop: '8px'}}>
+      <div className={`dropdown-content ${open ? 'open' : ''}`} style={{display: open ? 'block' : 'none', marginTop:8}}>
         {children}
       </div>
     </div>

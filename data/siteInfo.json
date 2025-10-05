@@ -1,0 +1,10 @@
+{
+  "siteName": "Lockyz Media Archive",
+  "tagline": "Preserving indie creations, experiments, and projects for the next generation.",
+  "heroCTA": {
+    "label": "View Games",
+    "href": "/games"
+  },
+  "mission": "The Lockyz Media Archive preserves abandoned and experimental projects to keep their history accessible.",
+  "featuredCount": 4
+}

@@ -1,38 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import config from '../lib/config';
+import { useRouter } from 'next/router';
 
-export default function Announcement({ routePath }){
+export default function Announcement(){ 
   const [anns, setAnns] = useState([]);
-  useEffect(() => {
+  const router = useRouter();
+  useEffect(()=>{
     let cancelled = false;
     async function load(){
+      let data = null;
       try {
-        let res; try { res = await fetch(config.announcementsURL); } catch(e) { res = null; }
-            if (!res || !res.ok) { try { res = await fetch('/data/announcements.json'); } catch(e) { res = null; } }
-        if (!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
-        if (cancelled) return;
-        const pageKey = routePath?.replace(/^\//,'');
-        let combined = [];
-        if (data.global) combined = combined.concat(data.global);
-        if (data.pages && pageKey && data.pages[pageKey]) combined = combined.concat(data.pages[pageKey]);
-        setAnns(combined);
-      } catch (err) {
-        // ignore
+        const res = await fetch(config.announcementsURL);
+        if (res.ok) data = await res.json();
+      } catch(e){ /* ignore */ }
+      if (!data) {
+        try {
+          const res2 = await fetch('/data/announcements.json');
+          if (res2.ok) data = await res2.json();
+        } catch(e){}
       }
+      if (!data) return;
+      // data can be array or object; standardize to array
+      const arr = Array.isArray(data) ? data : (data.announcements || []);
+      // filter by pages
+      const path = router.asPath || '/';
+      const applicable = arr.filter(a => {
+        if (!a.pages || a.pages.length===0) return true;
+        if (a.pages.includes('*')) return true;
+        return a.pages.includes(path);
+      });
+      if (!cancelled) setAnns(applicable);
     }
     load();
-    return () => { cancelled = true; }
-  }, [routePath]);
+    return ()=>{ cancelled = true; }
+  }, [router.asPath]);
 
-  if (!anns || anns.length === 0) return null;
+  if (!anns || anns.length===0) return null;
   return (
-    <div aria-live="polite" className="announcement-area">
-      {anns.map((a, i) => (
-        <div key={i} className={`announcement ${a.type || 'info'}`}>
+    <div className="announcement-stack" aria-live="polite">
+      {anns.map(a => (
+        <div key={a.id || Math.random()} className={`announcement ${a.type || 'info'}`}>
           <div className="icon">{a.icon || (a.type==='error' ? '❌' : a.type==='warning' ? '⚠️' : 'ℹ️')}</div>
-          <div className="text" dangerouslySetInnerHTML={{ __html: a.text }} />
-          <button className="close" onClick={(e)=>{ e.currentTarget.closest('.announcement').style.display='none'; }} aria-label="Close">✕</button>
+          <div className="text">{a.message}</div>
         </div>
       ))}
     </div>
